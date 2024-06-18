@@ -1,0 +1,36 @@
+import "./Hero.css";
+import hand_icon from "../../assets/hand_icon.png";
+import arrow from "../../assets/arrow.png";
+import hero_image from "../../assets/hero_image.png"
+
+const Hero = () => {
+  return (
+    <div className="hero">
+
+        {/* Hero left section */}
+        <div className="hero-left">
+            <h2>NEW ARRIVALS ONLY</h2>
+            <div>
+                <div className="hero-hand-icon">
+                    <p>new</p>
+                    <img src={hand_icon} alt="" />
+                </div>
+                <p>Collections</p>
+                <p>for everyone</p>
+            </div>
+            <div className="hero-latest-btn">
+                <div>Latest Collection</div>
+                <img src={arrow} alt=""/>
+            </div>
+        </div>
+
+        {/* Hero right section */}
+        <div className="hero-right">
+            <img src={hero_image} alt="" width={"460px"} height={"600px"}/>
+        </div>
+
+    </div>
+  )
+}
+
+export default Hero
