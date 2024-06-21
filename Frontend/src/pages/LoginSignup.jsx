@@ -18,11 +18,43 @@ const LoginSignup = () => {
   // Login function
   const login = async () => {
     console.log("Login function executed", formData)
+    let responseData;
+    await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    }).then((res) => res.json()).then((data) => responseData = data)
+
+    if (responseData.success) {
+      localStorage.setItem('auth-token', responseData.token)
+      window.location.replace("/");
+    }else{
+      alert(responseData.errors)
+    }
   }
 
   // Signup function
   const signup = async () => {
     console.log("Signup function executed", formData)
+    let responseData;
+    await fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    }).then((res) => res.json()).then((data) => responseData = data)
+
+    if (responseData.success) {
+      localStorage.setItem('auth-token', responseData.token)
+      window.location.replace("/");
+    }else{
+      alert(responseData.errors)
+    }
   }
 
   return (
