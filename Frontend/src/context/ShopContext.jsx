@@ -17,12 +17,12 @@ const ShopContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
     useEffect(() => {
-        fetch("http://localhost:3000/allproducts")
+        fetch("https://mern-e-commerce-1-56z3.onrender.com/allproducts")
             .then((res) => res.json())
             .then((data) => setAll_Product(data))
 
         if (localStorage.getItem('auth-token')) {
-            fetch("http://localhost:3000/getcart", {
+            fetch("https://mern-e-commerce-1-56z3.onrender.com/getcart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
@@ -43,7 +43,7 @@ const ShopContextProvider = ({ children }) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         // console.log(cartItems);
         if (localStorage.getItem('auth-token')) {
-            fetch("http://localhost:3000/addtocart", {
+            fetch("https://mern-e-commerce-1-56z3.onrender.com/addtocart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
@@ -61,7 +61,7 @@ const ShopContextProvider = ({ children }) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
 
         if (localStorage.getItem('auth-token')) {
-            fetch("http://localhost:3000/removefromcart", {
+            fetch("https://mern-e-commerce-1-56z3.onrender.com/removefromcart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',

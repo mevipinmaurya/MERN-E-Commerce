@@ -15,7 +15,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+const corsOption = {
+    origin: "https://mern-e-commerce-1-56z3.onrender.com",
+    credentials: true
+}
+app.use(cors(corsOption));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://vipinmaurya:Vipin%40123@cluster0.cjmz98f.mongodb.net/e-commerce");

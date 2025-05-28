@@ -7,7 +7,7 @@ const Popular = () => {
     const [data_product, setData_Product] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/popularinwomen")
+        fetch("https://mern-e-commerce-1-56z3.onrender.com/popularinwomen")
             .then((res) => res.json())
             .then((data) => setData_Product(data))
     }, [])
